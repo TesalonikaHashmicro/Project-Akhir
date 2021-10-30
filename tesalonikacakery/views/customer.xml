@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_partner_customer_view" model="ir.ui.view">
+            <field name="name">res.partner.inherit.view.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type='xml'>
+                <field name="vat" position="replace"/>
+                <field name="company_id" position="replace"/>
+                <field name="country_id" position="replace"/>
+            </field>
+        </record>
+ 
+        <record id="inherit_res_partner_view_id" model="ir.ui.view">
+            <field name="name">res.partner.inherit.view.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type='xml'>
+                <field name="vat" position="after">
+                    <field name="is_menikah" />
+                    <field name="is_pegawainya" />
+                    <field name="is_customernya" />
+                </field>
+                <field name="vat" position="replace"/>
+            </field>
+        </record>
+ 
+        <record id="tesalonikacakery_customer_view_search" model="ir.ui.view">
+            <field name="name">res.partner.search</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <search string="Pencarian">
+                    <field name="name" />
+                    <field name="is_customernya" />
+                    <field name="is_pegawainya" />
+                    <filter name="pegawai" string="Pegawai" domain="[('is_pegawainya', 'ilike', True)]"/>
+                    <filter name="customer" string="Customer" domain="[('is_customernya', 'ilike', True)]"/>
+                </search>
+            </field>
+        </record>
+        
+        <record id="res_partner_action" model="ir.actions.act_window">
+            <field name="name">Data Customer</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">
+                {
+                    'search_default_customer':1,
+                    'default_is_customernya':True,
+                }
+            </field>
+        </record>
+ 
+        <menuitem
+            id="customer_res_partner_inherit_menu_act"
+            name="Customer"
+            action="res_partner_action"
+            parent="tesalonikacakery_customer_menu_categ"
+            sequence="10"/>
+    </data>
+</odoo>

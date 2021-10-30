@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tesalonikacakery_kue,access.tesalonikacakery.kue,model_tesalonikacakery_kue,,1,1,1,1
+access_tesalonikacakery_detailkue,access.tesalonikacakery.detailkue,model_tesalonikacakery_detailkue,,1,1,1,1
+access_tesalonikacakery_order,access.tesalonikacakery.order,model_tesalonikacakery_order,,1,1,1,1
+access_tesalonikacakery_detailpembelian,access.tesalonikacakery.detailpembelian,model_tesalonikacakery_detailpembelian,,1,1,1,1

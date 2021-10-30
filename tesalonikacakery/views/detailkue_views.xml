@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="tesalonikacakery_detailkue_tree" model="ir.ui.view">
+      <field name="name">tesalonikacakery.detailkue.view.tree</field>
+      <field name="model">tesalonikacakery.detailkue</field>
+      <field name="arch" type="xml">
+          <tree string="Product Tree">  
+            <field name="teknik" />
+            <field name="potongan" />
+            <field name="stock"/>
+            <field name="harga"/>
+            <field name="pembuatan" />
+            <field name="expired" />
+            <field name="tersedia" />
+            <field name="stock_id" />
+          </tree>
+      </field>
+    </record>
+ 
+    <record id="tesalonikacakery_detailkue_view_form" model="ir.ui.view">
+      <field name="name">tesalonikacakery.detailkue.view.form</field>
+      <field name="model">tesalonikacakery.detailkue</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <group colspan='4'>
+                <group colspan='2'>
+                  <separator string='DETAIL KUE'/>
+                    <field name="teknik" />
+                    <field name="potongan" />
+                    <field name="pembuatan" />
+                    <field name="expired" />
+                </group>
+                <group colspan='2'>
+                  <separator string='STOK KUE'/>
+                    <field name="stock" />
+                    <field name="tersedia" />
+                </group>
+                <notebook>
+                    <page string="HARGA">
+                      <field name="harga" />
+                    </page>
+                  <page string="KUE">
+                    <field name="stock_id" />
+                  </page>
+                  <page string="Penanggung Jawab">
+                    <field name="pegawai_id" nolabel="1"/>
+                  </page>
+                </notebook>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+ 
+    <record id="tesalonikacakery_detailkue_action" model="ir.actions.act_window">
+      <field name="name">tesalonikacakery.detailkue.action</field>
+      <field name="res_model">tesalonikacakery.detailkue</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+            Diisi dengan detail kue
+        </p>
+      </field>
+    </record>
+ 
+    <menuitem
+      id="tesalonikacakery_detailkue_menu_act"
+      name="detailkue"
+      parent="tesalonikacakery_datamaster_menu_categ"
+      action="tesalonikacakery_detailkue_action" sequence="1" />
+  
+  </data>
+</odoo>

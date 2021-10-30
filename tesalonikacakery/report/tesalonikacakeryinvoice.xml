@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_tesalonikacakery_order_id">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <div class="oe_structure">
+                            <div class="row">
+                                <div class="col-4">Nama :</div>
+                                <div class="col-8"><span t-field="doc.name"></span></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">Total Tagihan :</div>
+                                <div class="col-8"><span t-field="doc.total_harga"></span></div>
+                            </div>
+                            <br/><br/>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <table class="table table-striped table-bordered">
+                                    <tr>
+                                        <thJenis Kue</th>
+                                        <th>Harga kue</th>
+                                        <th>Qty</th>
+                                        <th>Jumlah Harga</th>
+                                    </tr>
+                                    <tr t-foreach="doc.detailkue_ids" t-as="data">
+                                        <td><span t-esc="data.stock_id.name"></span></td>
+                                        <td><span t-esc="data.harga"></span></td>
+                                        <td><span t-esc="data.qty"></span></td>
+                                        <td><span t-esc="data.total_bayar"></span></td>
+                                    </tr>
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+    </template>
+</odoo>
