@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="tesalonikacakery_kue_tree" model="ir.ui.view">
+      <field name="name">tesalonikacakery.kue.view.tree</field>
+      <field name="model">tesalonikacakery.kue</field>
+      <field name="arch" type="xml">
+          <tree string="Product Tree">
+            <field name="name" />
+            <field name="ukuran" />
+            <field name="rasa" />
+            <field name="jenis" />
+            <field name="detail_id" />
+            <field name="active" />
+          </tree>
+      </field>
+    </record>
+
+    <record id="tesalonikacakery_kue_view_form" model="ir.ui.view">
+      <field name="name">tesalonikacakery.kue.view.form</field>
+      <field name="model">tesalonikacakery.kue</field>
+      <field name="arch" type="xml">
+          <form>
+            <sheet>
+              <group>
+              <!-- Add your group fields here -->
+                <group colspan='4'>
+                  <group colspan='2'>
+                    <separator string='JENIS kue'/>
+                      <field name="name" />
+                      <field name="type" />
+                  </group>
+                  <group colspan='2'>
+                    <separator string='MEMORY'/>
+                      <field name="ram" />
+                      <field name="memory" />
+                  </group>
+                  <notebook>
+                    <page string="DETAIL">
+                      <field name="detail_id" nolebel="1"/>
+                    </page>
+                  </notebook>
+                </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="tesalonikacakery_kue_view_search" model="ir.ui.view">
+      <field name="name">tesalonikacakery.kue.view.search</field>
+      <field name="model">tesalonikacakery.kue</field>
+      <field name="arch" type="xml">
+        <search string="Pencarian">
+          <field name="name" />
+          <field name="type" />
+        </search>
+      </field>
+    </record>
+
+    <record id="tesalonikacakery_kue_action" model="ir.actions.act_window">
+      <field name="name">tesalonikacakery.kue.action</field>
+      <field name="res_model">tesalonikacakery.kue</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+                    Jenis kue
+           </p><p>
+                </p>
+      </field>
+    </record>
+ 
+    <menuitem
+      id="tesalonikacakery_jeniskue_menu_act"
+      name="Jenis kue"
+      parent="tesalonikacakery_datamaster_menu_categ"
+      action="tesalonikacakery_kue_action" sequence="1" />
+  </data>
+</odoo>
